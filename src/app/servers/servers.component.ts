@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { Push } from 'typescript';
 
 @Component({
   selector: 'app-servers',
@@ -10,6 +11,7 @@ export class ServersComponent implements OnInit {
   serverCreationStatus = 'No Server was created!';
   serverName = 'TeztServer';
   serverCreated = false;
+  servers = ['TestServer ' , 'TestServer 2']
   constructor() {
     setTimeout(() => {
       this.allowNewServer = true;
@@ -22,6 +24,7 @@ export class ServersComponent implements OnInit {
   onCreatServers() {
     this.serverCreated = true;
     this.serverCreationStatus = "Server was created! Name is" + this.serverName;
+    this.servers.push(this.serverName);
 
   }
   onUpdateServerName(event: Event) {
